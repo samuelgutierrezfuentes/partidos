@@ -1,0 +1,7 @@
+<nav class="navbar justify-content-center">
+  <form class="form-inline">
+    <input #txtNombre name="nombre" [(ngModel)]="equipo.nombre" class="form-control mr-sm-2 " type="search" placeholder="Ingrese nombre" aria-label="Search" >
+    <input #txtCiudad name="ciudad" [(ngModel)]="equipo.ciudad" class="form-control mr-sm-2 " type="search" placeholder="Ingrese ciudad" aria-label="Search" >
+  </form>
+  <button class="btn text-white my-2 my-sm-4 bg-danger" type="submit" (click)="agregarEditar(txtNombre.value, txtCiudad.value)" >Enviar</button>
+</nav>

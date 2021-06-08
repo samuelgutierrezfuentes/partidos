@@ -1,0 +1,14 @@
+
+<nav class="navbar justify-content-center">
+  <form class="form-inline">
+    <input #txtBusCiudad class="form-control mr-sm-2 " type="search" placeholder="Equipo por ciudad" aria-label="Search" >
+  </form>
+  <button class="btn text-white my-2 my-sm-4 bg-danger" type="submit" (click)="busquedaCiudad(txtBusCiudad.value)" >Buscar</button>
+</nav>
+
+<nav class="navbar justify-content-center ">
+  <form class="form-inline " action="BusNacionalidad.html">
+    <input #txtBusNacion class="form-control mr-sm-2" type="search" placeholder="Jugador por nación" aria-label="Search">
+    <button class="btn text-white my-2 my-sm-2 bg-danger" type="submit" (click)="busquedaNacion(txtBusNacion.value)" >Buscar</button>
+  </form>
+</nav>

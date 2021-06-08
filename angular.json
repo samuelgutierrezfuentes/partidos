@@ -119,6 +119,10 @@
           }
         }
       }
-    }},
-  "defaultProject": "prototipopartidos"
+    }
+  },
+  "defaultProject": "prototipopartidos",
+  "cli": {
+    "analytics": false
+  }
 }

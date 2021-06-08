@@ -1,0 +1,63 @@
+<div class="row">
+  <div class="col-9">
+
+  </div>
+  <div class="col-3">
+
+    <div class="text-left m-1">
+      <button class="btn btn-primary btn-sm" routerLink="/equipos/0">
+        <i class="bi bi-plus"></i>
+        Crear equipo
+      </button>
+    </div>
+  </div>
+
+</div>
+<div>
+  <div class="table-responsive ">
+    <table class="table table-borderless">
+      <thead class="thead-dark">
+        <tr class="d-flex justify-content-center" style="height: 50px;">
+          <th class="col-md-9" scope="col" style="background-color:#3333ff;">
+            <p class="text-center">Equipos </p>
+          </th>
+        </tr>
+        <tr class="d-flex justify-content-center " style="height: 50px;">
+          <th class="col-md-4 " scope="col" style="background-color:#0047b3;">
+            <p class="text-left">Nombre</p>
+          </th>
+          <th class="col-md-4 " scope="col" style="background-color:#0047b3;">
+            <p class="text-left">Ciudad</p>
+          </th>
+          <th class="col-md-1 " scope="col" style="background-color:#0047b3;">
+            <p class="text-center"></p>
+          </th>
+        </tr>
+      </thead>
+      <tbody>
+
+        <tr *ngFor="let item of equipos" class="d-flex justify-content-center">
+
+          <td class="col-md-4 bg-danger" scope="row">
+            <p class="text-left text-white">{{ item.nombre }}</p>
+          </td>
+          <td class="col-md-4 bg-danger" scope="row">
+            <p class="text-left text-white">{{ item.ciudad }}</p>
+          </td>
+          <td class="col-md-1 bg-danger" scope="row">
+
+            <a class="text-center text-white cursor" data-toggle="tooltip"
+                [routerLink]="['/','equipos', item.equipoid]"
+                title="Editar">
+                <i class="bi bi-pencil-square text-white cursor"></i>
+            </a>
+            &nbsp;
+            <a data-toggle="tooltip" title="Eliminar" class="text-center text-white cursor"
+               (click)="eliminar(item.equipoid)">
+              <i class="bi bi-trash cursor"></i>
+            </a>
+
+          </td>
+        </tr>
+      </tbody>
+    </table>

@@ -1,0 +1,55 @@
+
+
+ <div >
+   <div class="table-responsive " >
+     <table class="table table-borderless">
+   <thead class="thead-dark" >
+     <tr class="d-flex justify-content-center" style="height: 50px;">
+       <th  class="col-md-5" scope="col" style="background-color:#3333ff;"><p class="text-center">Conferencia Este </p></th>
+     </tr>
+     <tr class="d-flex justify-content-center " style="height: 50px;" >
+       <th  class="col-md-1 " scope="col" style="background-color:#0047b3;"><p class="text-center">#</p></th>
+       <th  class="col-md-1 " scope="col" style="background-color:#0047b3;"><p class="text-center">Nombre</p></th>
+       <th  class="col-md-1 " scope="col" style="background-color:#0047b3;"><p class="text-center">PJ</p></th>
+       <th  class="col-md-1 " scope="col" style="background-color:#0047b3;"><p class="text-center">G</p></th>
+       <th  class="col-md-1 " scope="col" style="background-color:#0047b3;"><p class="text-center">P</p></th>
+     </tr>
+   </thead>
+   <tbody>
+     <tr  *ngFor="let item of listaEquiposEste" class="d-flex justify-content-center" >
+       <th class="col-md-1 bg-danger"  scope="row" ><p class="text-center  text-white">{{item.posicion}}</p></th>
+       <td class="col-md-1 bg-danger"  scope="row"><a [routerLink]="['/jugadores', item.nombre]" routerLinkActive="router-link-active"><p class="text-center "><button type="button" class="btn btn-sm  text-white" style="background-color:#0047b3;">{{item.nombre}}</button></p></a></td>
+       <td class="col-md-1 bg-danger"  scope="row"><p class="text-center  text-white">{{item.pj}}</p></td>
+       <td class="col-md-1 bg-danger"  scope="row"><p class="text-center  text-white">{{item.g}}</p></td>
+       <td class="col-md-1 bg-danger"  scope="row"><p class="text-center  text-white">{{item.p}}</p></td>
+     </tr>
+
+   </tbody>
+ </table>
+<br>
+<div >
+  <div class="table-responsive " >
+    <table class="table table-borderless">
+  <thead class="thead-dark" >
+    <tr class="d-flex justify-content-center" style="height: 50px;">
+      <th  class="col-md-5" scope="col" style="background-color:#3333ff;"><p class="text-center">Conferencia Oeste </p></th>
+    </tr>
+    <tr class="d-flex justify-content-center " style="height: 50px;" >
+      <th  class="col-md-1 " scope="col" style="background-color:#0047b3;"><p class="text-center">#</p></th>
+      <th  class="col-md-1 " scope="col" style="background-color:#0047b3;"><p class="text-center">Nombre</p></th>
+      <th  class="col-md-1 " scope="col" style="background-color:#0047b3;"><p class="text-center">PJ</p></th>
+      <th  class="col-md-1 " scope="col" style="background-color:#0047b3;"><p class="text-center">G</p></th>
+      <th  class="col-md-1 " scope="col" style="background-color:#0047b3;"><p class="text-center">P</p></th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let item of listaEquiposOeste" class="d-flex justify-content-center" >
+      <th class="col-md-1 bg-danger"  scope="row" ><p class="text-center  text-white">{{item.posicion}}</p></th>
+      <td class="col-md-1 bg-danger"  scope="row"><a [routerLink]="['/jugadores', item.nombre]" routerLinkActive="router-link-active"><p class="text-center "><button type="button" class="btn btn-sm  text-white" style="background-color:#0047b3;">{{item.nombre}}</button></p></a></td>
+      <td class="col-md-1 bg-danger"  scope="row"><p class="text-center  text-white">{{item.pj}}</p></td>
+      <td class="col-md-1 bg-danger"  scope="row"><p class="text-center  text-white">{{item.g}}</p></td>
+      <td class="col-md-1 bg-danger"  scope="row"><p class="text-center  text-white">{{item.p}}</p></td>
+    </tr>
+
+  </tbody>
+</table>

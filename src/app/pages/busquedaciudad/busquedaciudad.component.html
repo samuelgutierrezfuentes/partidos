@@ -1,0 +1,18 @@
+<div class="table-responsive">
+  <table class="table table-borderless">
+<thead class="thead-dark">
+  <tr class="d-flex justify-content-center"  style="height: 50px;">
+    <th  class="col-md-4" scope="col" style="background-color:#3333ff;" ><p class="text-center">Equipos</p></th>
+  </tr>
+</thead>
+<tbody>
+  <tr *ngFor="let item of equipos"  class="d-flex justify-content-center" >
+    <td  class="col-md-1 bg-danger" ><p class="text-center  text-white"></p></td>
+    <td  class="col-md-2 bg-danger" ><p class="text-center  text-white">{{item.nombre}}</p></td>
+    <td  class="col-md-1 bg-danger" ><p class="text-center  text-white"></p></td>
+
+  </tr>
+
+</tbody>
+</table>
+</div>

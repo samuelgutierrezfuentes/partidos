@@ -1,0 +1,8 @@
+<nav class="navbar  justify-content-center "  style="background-color:#3333ff;" width="40">
+  <img  src="../assets/img/nbaU.png" alt="NBA U" width="80" height="80" >
+  <a *ngIf="funcionesService.mostrarMenuClasificacion" class="navbar-brand" [routerLink]="['/home']" routerLinkActive="router-link-active" ><button type="button" class="btn btn-light text-white" style="background-color:#0047b3;">Clasificación</button></a>
+  <a class="navbar-brand" [routerLink]="['/partidos']" routerLinkActive="router-link-active" ><button type="button" class="btn btn-light text-white" style="background-color:#0047b3;">Partidos</button></a>
+  <a class="navbar-brand" [routerLink]="['/busqueda']" routerLinkActive="router-link-active" ><button type="button" class="btn btn-light text-white" style="background-color:#0047b3;">Busqueda</button></a>
+  <a class="navbar-brand" [routerLink]="['/equipos']" routerLinkActive="router-link-active" ><button type="button" class="btn btn-light text-white" style="background-color:#0047b3;">Equipos</button></a>
+</nav>
+<br>

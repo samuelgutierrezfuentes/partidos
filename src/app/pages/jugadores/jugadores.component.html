@@ -1,0 +1,29 @@
+<div class="table-responsive">
+  <table class="table table-borderless">
+<thead class="thead-dark">
+  <tr class="d-flex justify-content-center"  style="height: 50px;">
+    <th  class="col-md-6" scope="col" style="background-color:#3333ff;" ><p class="text-center">Jugadores</p></th>
+  </tr>
+  <tr class="d-flex justify-content-center" style="height: 50px;">
+
+    <th  class="col-md-1 " scope="col" style="background-color:#0047b3;"><p class="text-center">Nombre</p></th>
+    <th  class="col-md-1 " scope="col" style="background-color:#0047b3;"><p class="text-center">Nac</p></th>
+    <th  class="col-md-1 " scope="col" style="background-color:#0047b3;"><p class="text-center">Edad</p></th>
+    <th  class="col-md-1 " scope="col" style="background-color:#0047b3;"><p class="text-center">Pts</p></th>
+    <th  class="col-md-1 " scope="col" style="background-color:#0047b3;"><p class="text-center">Reb</p></th>
+    <th  class="col-md-1 " scope="col" style="background-color:#0047b3;"><p class="text-center">Asis</p></th>
+  </tr>
+</thead>
+<tbody>
+  <tr *ngFor="let item of jugadores" class="d-flex justify-content-center" >
+
+    <td  class="col-md-1 bg-danger" ><p class="text-center  text-white">{{item.nombre}}</p></td>
+    <td  class="col-md-1 bg-danger" ><p class="text-center  text-white">{{item.nacionalidad}}</p></td>
+    <td  class="col-md-1 bg-danger" ><p class="text-center  text-white">{{item.edad}}</p></td>
+    <td  class="col-md-1 bg-danger" ><p class="text-center  text-white">{{item.ptos}}</p></td>
+    <td  class="col-md-1 bg-danger" ><p class="text-center  text-white">{{item.reb}}</p></td>
+    <td  class="col-md-1 bg-danger" ><p class="text-center  text-white">{{item.asistencias}}</p></td>
+  </tr>
+  </tbody>
+</table>
+ </div>
