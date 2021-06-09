@@ -17,47 +17,52 @@
   <div class="table-responsive ">
     <table class="table table-borderless">
       <thead class="thead-dark">
-        <tr class="d-flex justify-content-center" style="height: 50px;">
-          <th class="col-md-9" scope="col" style="background-color:#3333ff;">
-            <p class="text-center">Equipos </p>
-          </th>
-        </tr>
-        <tr class="d-flex justify-content-center " style="height: 50px;">
-          <th class="col-md-4 " scope="col" style="background-color:#0047b3;">
-            <p class="text-left">Nombre</p>
-          </th>
-          <th class="col-md-4 " scope="col" style="background-color:#0047b3;">
-            <p class="text-left">Ciudad</p>
-          </th>
-          <th class="col-md-1 " scope="col" style="background-color:#0047b3;">
-            <p class="text-center"></p>
-          </th>
-        </tr>
+      <tr class="d-flex justify-content-center" style="height: 50px;">
+        <th class="col-md-9" scope="col" style="background-color:#3333ff;">
+          <p class="text-center">Equipos </p>
+        </th>
+      </tr>
+      <tr class="d-flex justify-content-center " style="height: 50px;">
+        <th class="col-md-4 " scope="col" style="background-color:#0047b3;">
+          <p class="text-left">Nombre</p>
+        </th>
+        <th class="col-md-4 " scope="col" style="background-color:#0047b3;">
+          <p class="text-left">Ciudad</p>
+        </th>
+        <th class="col-md-1 " scope="col" style="background-color:#0047b3;">
+          <p class="text-center"></p>
+        </th>
+      </tr>
       </thead>
       <tbody>
 
-        <tr *ngFor="let item of equipos" class="d-flex justify-content-center">
+      <tr *ngFor="let item of equipos" class="d-flex justify-content-center">
 
-          <td class="col-md-4 bg-danger" scope="row">
-            <p class="text-left text-white">{{ item.nombre }}</p>
-          </td>
-          <td class="col-md-4 bg-danger" scope="row">
-            <p class="text-left text-white">{{ item.ciudad }}</p>
-          </td>
-          <td class="col-md-1 bg-danger" scope="row">
+        <td class="col-md-4 bg-danger" scope="row">
+          <p class="text-left text-white">{{ item.nombre }}</p>
+        </td>
+        <td class="col-md-4 bg-danger" scope="row">
+          <p class="text-left text-white">{{ item.ciudad }}</p>
+        </td>
+        <td class="col-md-1 bg-danger" scope="row">
+          <a class="text-center text-white cursor" data-toggle="tooltip"
+             [routerLink]="['/','equipos', item.id]"
+             title="Editar">
+            <i class="bi bi-pencil-square text-white cursor"></i>
+          </a>
+          <a data-toggle="tooltip" title="Eliminar" class="text-center text-white cursor"
+             (click)="eliminar(item.id)">
+            <i class="bi bi-trash cursor"></i>
+          </a>
+          <a data-toggle="tooltip" title="Favorito" class="text-center text-white cursor"
+             (click)="favorito(item.id, item.favorite)">
+            <i *ngIf="!item.favorite" class="bi bi-bookmark cursor"></i>
+            <i *ngIf="item.favorite" class="bi bi-bookmark-fill cursor"></i>
+          </a>
 
-            <a class="text-center text-white cursor" data-toggle="tooltip"
-                [routerLink]="['/','equipos', item.equipoid]"
-                title="Editar">
-                <i class="bi bi-pencil-square text-white cursor"></i>
-            </a>
-            &nbsp;
-            <a data-toggle="tooltip" title="Eliminar" class="text-center text-white cursor"
-               (click)="eliminar(item.equipoid)">
-              <i class="bi bi-trash cursor"></i>
-            </a>
-
-          </td>
-        </tr>
+        </td>
+      </tr>
       </tbody>
     </table>
+  </div>
+</div>

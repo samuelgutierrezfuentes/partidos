@@ -1,7 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Equipos } from '../../model/equipos.model';
-import { FuncionesService } from '../../servicios/funciones.service';
-import { Router } from '@angular/router';
+import {GestionEquiposService} from '../../servicios/gestionEquipos.service';
 
 @Component({
   selector: 'app-equipos',
@@ -12,30 +11,32 @@ import { Router } from '@angular/router';
 export class EquiposComponent implements OnInit {
   equipos: Equipos[] = [];
 
-  constructor(private funcionesService: FuncionesService, private router: Router) { }
+  constructor(private funcionesService: GestionEquiposService) { }
 
   ngOnInit(): void {
-
-   this.cargarDatos();
+   this.cargarEquipos();
   }
 
-  cargarDatos(){
+  public cargarEquipos(): void{
     this.funcionesService.obtener()
-    .subscribe( equipos => {
-      this.equipos = equipos.map(
-        t => {return {
-          id: t.payload.doc.id,
-          ...t.payload.doc.data()
-        };
-      });
+    .subscribe(d => {
+      this.equipos = d.equipos;
     });
   }
 
-  eliminar(id: string) {
-
-    this.funcionesService.eliminarEquipo(id);
-    this.cargarDatos();
-    alert("El registro ha sido eliminado correctamente");
+  eliminar(id: string): any {
+    this.funcionesService.eliminarEquipo(id)
+      .subscribe(d => {
+        console.log(d.msg);
+        this.cargarEquipos();
+      });
+    alert('El registro ha sido eliminado correctamente');
+  }
+  favorito(id: string, favorito: boolean): any {
+    this.funcionesService.equipoFavorito(id, favorito)
+      .subscribe(d => {
+        this.cargarEquipos();
+      });
   }
 
 

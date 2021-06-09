@@ -1,60 +1,42 @@
-import { Component, OnInit } from '@angular/core';
-import { Subscription } from 'rxjs';
-import { ActivatedRoute, Router } from '@angular/router';
-import { Equipos } from '../../../model/equipos.model';
-import { FuncionesService } from '../../../servicios/funciones.service';
-import { FormsModule } from '@angular/forms';
+import {Component, OnInit} from '@angular/core';
+import {ActivatedRoute, Router} from '@angular/router';
+import {Equipos} from '../../../model/equipos.model';
+import {GestionEquiposService} from '../../../servicios/gestionEquipos.service';
 
 @Component({
   selector: 'app-agregareditar',
   templateUrl: './agregareditar.component.html',
-  styles: [
-  ]
+  styles: []
 })
 export class AgregareditarComponent implements OnInit {
 
-  id:string;
-  equipo: Equipos = {equipoid:'0', nombre:'', ciudad:''};
+  id: string;
+  equipo: Equipos = {equipoid: '0', nombre: '', ciudad: ''};
 
-  constructor( private route: ActivatedRoute, private funcionesService: FuncionesService, private router: Router) { }
+  constructor(private route: ActivatedRoute, private funcionesService: GestionEquiposService, private router: Router) {
+  }
 
   ngOnInit(): void {
+    this.getTeam();
+  }
 
-    this.route.paramMap.subscribe( params =>{
+  agregarEditar(nombre: string, ciudad: string): void {
+    this.funcionesService.gestionarEquipo(this.id, nombre, ciudad)
+      .subscribe(d => {
+        console.log(d);
+        this.router.navigate(['/equipos'], {});
+      });
+  }
 
-     this.id = params.get("id");
-
-      if(this.id != '0'){
-
-        this.cargarDatos(this.id);
-      }else{
-
-        const d1 = new Date();
-        const nuevoId = d1.getTime();
-        this.id = nuevoId.toString();
-
+  getTeam(): void{
+    this.route.paramMap.subscribe(params => {
+      this.id = params.get('id');
+      if (this.id !== '0') {
+        this.funcionesService.getTeamById(this.id)
+          .subscribe(d => {
+            this.equipo = d.equipo;
+          });
       }
     });
   }
-
-  cargarDatos(id:string){
-    this.funcionesService.obtenerEquipoPorId(id)
-    .subscribe( equipos => {
-
-      this.equipo =  {
-          id: equipos.payload.id,
-          ...equipos.payload.data()
-        };
-
-    });
-
-
-  }
-
-  agregarEditar(nombre:string, ciudad:string){
-
-        this.funcionesService.agregarEditarEquipo(this.id, nombre, ciudad);
-        this.router.navigate(['/equipos'], { });
-  }
-
 }

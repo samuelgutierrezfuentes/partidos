@@ -4,6 +4,7 @@
 
 export const environment = {
   production: false,
+  base_URL: 'http://localhost:3000/api',
   url: 'http://localhost:5000/prototipo-b6be2/us-central1',
   firebaseConfig: {
     apiKey: "AIzaSyCAz9Bj2soSp39gMiOQdtfBC5ShHW8ITSQ",
