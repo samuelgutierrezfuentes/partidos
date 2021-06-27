@@ -1,13 +1,18 @@
 {
-  "name": "prototipopartidos",
+  "name": "equipos",
   "version": "0.0.0",
   "scripts": {
     "ng": "ng",
-    "start": "ng serve",
-    "build": "ng build --prod",
+    "start": "node server.js",
+    "build": "ng build",
     "test": "ng test",
     "lint": "ng lint",
-    "e2e": "ng e2e"
+    "e2e": "ng e2e",
+    "heroku-postbuild": "ng build --prod"
+  },
+  "engines": {
+    "node": "14.17.1",
+    "npm": "6.14.13"
   },
   "private": true,
   "dependencies": {
@@ -26,8 +31,10 @@
     "express": "^4.17.1",
     "firebase": "^8.4.1",
     "firebase-admin": "^9.6.0",
+    "path": "^0.12.7",
     "rxjs": "~6.5.5",
     "tslib": "^2.0.0",
+    "typescript": "~3.9.5",
     "zone.js": "~0.10.3"
   },
   "devDependencies": {
