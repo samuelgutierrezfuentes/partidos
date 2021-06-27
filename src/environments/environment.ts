@@ -1,10 +1,9 @@
 // This file can be replaced during build by using the `fileReplacements` array.
 // `ng build --prod` replaces `environment.ts` with `environment.prod.ts`.
 // The list of file replacements can be found in `angular.json`.
-
+// base_URL: 'http://localhost:3000/api',
 export const environment = {
   production: false,
-  // base_URL: 'http://localhost:3000/api',
   base_URL: 'https://node-equipos.herokuapp.com/api',
   url: 'http://localhost:5000/prototipo-b6be2/us-central1',
   firebaseConfig: {
