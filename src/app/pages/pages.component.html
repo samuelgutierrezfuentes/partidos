@@ -19,9 +19,9 @@
      <tr  *ngFor="let item of listaEquiposEste" class="d-flex justify-content-center" >
        <th class="col-md-1 bg-danger"  scope="row" ><p class="text-center  text-white">{{item.posicion}}</p></th>
        <td class="col-md-1 bg-danger"  scope="row"><a [routerLink]="['/jugadores', item.nombre]" routerLinkActive="router-link-active"><p class="text-center "><button type="button" class="btn btn-sm  text-white" style="background-color:#0047b3;">{{item.nombre}}</button></p></a></td>
-       <td class="col-md-1 bg-danger"  scope="row"><p class="text-center  text-white">{{item.pj}}</p></td>
-       <td class="col-md-1 bg-danger"  scope="row"><p class="text-center  text-white">{{item.g}}</p></td>
-       <td class="col-md-1 bg-danger"  scope="row"><p class="text-center  text-white">{{item.p}}</p></td>
+       <td class="col-md-1 bg-danger"  scope="row"><p class="text-center  text-white">{{item.jugados}}</p></td>
+       <td class="col-md-1 bg-danger"  scope="row"><p class="text-center  text-white">{{item.ganados}}</p></td>
+       <td class="col-md-1 bg-danger"  scope="row"><p class="text-center  text-white">{{item.perdidos}}</p></td>
      </tr>
 
    </tbody>
@@ -46,9 +46,9 @@
     <tr *ngFor="let item of listaEquiposOeste" class="d-flex justify-content-center" >
       <th class="col-md-1 bg-danger"  scope="row" ><p class="text-center  text-white">{{item.posicion}}</p></th>
       <td class="col-md-1 bg-danger"  scope="row"><a [routerLink]="['/jugadores', item.nombre]" routerLinkActive="router-link-active"><p class="text-center "><button type="button" class="btn btn-sm  text-white" style="background-color:#0047b3;">{{item.nombre}}</button></p></a></td>
-      <td class="col-md-1 bg-danger"  scope="row"><p class="text-center  text-white">{{item.pj}}</p></td>
-      <td class="col-md-1 bg-danger"  scope="row"><p class="text-center  text-white">{{item.g}}</p></td>
-      <td class="col-md-1 bg-danger"  scope="row"><p class="text-center  text-white">{{item.p}}</p></td>
+      <td class="col-md-1 bg-danger"  scope="row"><p class="text-center  text-white">{{item.jugados}}</p></td>
+      <td class="col-md-1 bg-danger"  scope="row"><p class="text-center  text-white">{{item.ganados}}</p></td>
+      <td class="col-md-1 bg-danger"  scope="row"><p class="text-center  text-white">{{item.perdidos}}</p></td>
     </tr>
 
   </tbody>

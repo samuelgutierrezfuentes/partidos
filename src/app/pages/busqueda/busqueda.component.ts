@@ -14,16 +14,12 @@ export class BusquedaComponent implements OnInit {
   ngOnInit(): void {
   }
 
-  busquedaCiudad(ciudad:String){
-
+  busquedaCiudad( ciudad: string ): void {
     this.router.navigate(['/busquedaciudad'], { queryParams: { cuidad: ciudad } });
   }
 
-  busquedaNacion(nacion:String){
-
-    //alert(ciudad);
-    //this.router.navigateByUrl('/busquedaciudad');
-    this.router.navigate(['/busquedanacionalidad'], { queryParams: { nacion: nacion } });
+  busquedaNacion(nacion: string): void {
+    this.router.navigate(['/busquedanacionalidad'], { queryParams: { nacion } });
 
   }
 

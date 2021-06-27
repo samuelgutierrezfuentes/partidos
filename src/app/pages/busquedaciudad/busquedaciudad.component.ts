@@ -3,6 +3,7 @@ import { ActivatedRoute } from '@angular/router';
 import { Subscription } from 'rxjs';
 import { FuncionesService } from '../../servicios/funciones.service';
 import { Equipos } from '../../model/equipos.model';
+import {GestionEquiposService} from '../../servicios/gestionEquipos.service';
 
 @Component({
   selector: 'app-busquedaciudad',
@@ -13,38 +14,28 @@ import { Equipos } from '../../model/equipos.model';
 export class BusquedaciudadComponent implements OnInit, OnDestroy {
 
   private sub: Subscription;
-  busqueda:string ;
-  equipos: Equipos[] =[];
+  busqueda: string ;
+  equipos: Equipos[] = [];
 
-  constructor( private route: ActivatedRoute,  private funcionesService: FuncionesService) { }
+  constructor( private route: ActivatedRoute,  private funcionesService: GestionEquiposService) { }
 
   ngOnInit(): void {
-
     this.sub = this.route
     .queryParams
     .subscribe(params => {
-
-      this.busqueda = params['cuidad'] || "";
+      this.busqueda = params.cuidad || '';
       this.cargarDatos();
     });
   }
 
   ngOnDestroy(): void {
-
     this.sub.unsubscribe();
   }
 
-  cargarDatos(){
-    this.funcionesService.obtener()
-    .subscribe( equipos => {
-
-      this.equipos = equipos.map(
-        t => {return {
-          id: t.payload.doc.id,
-          ...t.payload.doc.data()
-        };
-      });
-      this.equipos = this.equipos.filter(equipos =>equipos.ciudad ==this.busqueda);
+  cargarDatos(): void {
+    this.funcionesService.equiposByCiudad(this.busqueda)
+    .subscribe( data => {
+      this.equipos = data.equiposByCiudad;
     });
   }
 

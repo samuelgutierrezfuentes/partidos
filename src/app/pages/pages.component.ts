@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FuncionesService } from '../servicios/funciones.service';
+import {GestionEquiposService} from '../servicios/gestionEquipos.service';
 
 @Component({
   selector: 'app-pages',
@@ -12,27 +13,20 @@ export class PagesComponent implements OnInit {
   listaEquipos;
   listaEquiposEste;
   listaEquiposOeste;
-  constructor(private funcionesService: FuncionesService) { }
+  constructor(private funcionesService: GestionEquiposService) { }
 
   ngOnInit(): void {
-
     this.cargarDatos();
   }
 
-  cargarDatos(){
-
-    this.funcionesService.obtenerClasificacion()
-    .subscribe( equipos => {
-      this.listaEquipos = equipos.map(
-        t => {return {
-          id: t.payload.doc.id,
-          ...t.payload.doc.data()
-        };
+  cargarDatos(): void {
+    this.funcionesService.equiposClasificados()
+      .subscribe( data => {
+        this.listaEquipos = data.clasificados;
+        this.listaEquiposOeste = this.listaEquipos.filter(listaEquipos => listaEquipos.zona === 'oeste');
+        this.listaEquiposEste = this.listaEquipos.filter(listaEquipos => listaEquipos.zona === 'este');
+        // console.log(this.listaEquipos);
       });
-      this.listaEquiposOeste = this.listaEquipos.filter(listaEquipos =>listaEquipos.conferencia == "oeste");
-      this.listaEquiposEste = this.listaEquipos.filter(listaEquipos =>listaEquipos.conferencia == "este");
-     // console.log(this.listaEquipos);
-    });
   }
 
 }
